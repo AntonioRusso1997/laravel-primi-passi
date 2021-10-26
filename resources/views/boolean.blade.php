@@ -24,7 +24,7 @@
         <main class="main-container">
             <h1>{{ $title }}</h1>
 
-            <img src="{{ $photo }}" alt="banner Breaking Bad">
+            <img src="{{ $photo }}" alt="banner boolean">
 
             <p>{{ $text }}</p>
         </main>

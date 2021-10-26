@@ -24,9 +24,19 @@
         <main class="main-container">
             <h1>{{ $title }}</h1>
 
-            <img src="{{ $photo }}" alt="banner Breaking Bad">
+            <div class="card-container">
+                @foreach ($seasons as $season)
+                <div class="card">
+                    <img class="char-photo" src="{{ $season['photo'] }}" alt="">
+                    <div class="text-area">
+                        <div class="name"><h1>{{ $season['title'] }}</h1></div>
+                        <div class="fullname">Year: <span>{{ $season['year'] }}</span></div>
+                    </div>
+                </div>            
+                @endforeach
+            </div>
 
-            <p>{{ $text }}</p>
+            
         </main>
 
     </body>
@@ -95,9 +105,42 @@
             text-align: center;
             margin: 0;
         }
-        .main-container img {
+
+        .card-container {
             width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .card {
+            cursor: pointer;
+            background-color: #095632;
+            margin: 0 15px;
+            width: calc((100% / 3) - 30px);
             border-radius: 20px;
+            overflow: hidden;
+            font-size: 16px;
+            color: lightgray;
+            box-shadow: 0px 0px 5px 8px rgba(178,156,10,0.5);
+            margin: 15px;
+        }
+        .char-photo {
+            width: 100%;
+        }
+        .text-area {
+            padding: 10px;
+        }
+        .text-area span {
+            font-size: 18px;
+            margin-left: 10px;
+            color: white;
+        }
+        .text-area h1 {
+            color: white;
+            text-transform: uppercase;
+        }
+        .text-area>div {
+            margin: 10px 0;
         }
     </style>
 </html>
